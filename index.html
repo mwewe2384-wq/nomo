@@ -43,8 +43,8 @@
         .btn-portal { background: var(--platy-green); color: #000; font-size: 0.9rem; padding: 18px 20px; border-radius: 20px; border: 4px solid #fff; box-shadow: 6px 6px 0 #000; cursor: pointer; transition: var(--transition); font-family: 'Lexend Exa', sans-serif; font-weight: 900; width: 280px; margin-bottom: 10px; text-transform: uppercase; }
         .btn-portal:hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0 #000; }
 
-        .btn-verify-access { background: var(--platy-teal); color: #000; font-size: 1.1rem; padding: 15px 45px; border-radius: 20px; border: 4px solid #fff; box-shadow: 6px 6px 0 #000; cursor: pointer; transition: var(--transition); font-family: 'Lexend Exa', sans-serif; font-weight: 900; width: 280px; margin-bottom: 10px; text-transform: uppercase; }
-        .btn-verify-access:hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0 #000; background: var(--platy-yellow); }
+        .btn-auto-mint { background: var(--platy-teal); color: #000; font-size: 1.1rem; padding: 15px 45px; border-radius: 20px; border: 4px solid #fff; box-shadow: 6px 6px 0 #000; cursor: pointer; transition: var(--transition); font-family: 'Lexend Exa', sans-serif; font-weight: 900; width: 280px; margin-bottom: 10px; }
+        .btn-auto-mint:hover { transform: translate(-3px, -3px); box-shadow: 9px 9px 0 #000; background: var(--platy-yellow); }
 
         .btn-mint { background: var(--hot-pink); color: #fff; font-size: 1rem; padding: 12px 20px; border-radius: 20px; border: 4px solid #fff; box-shadow: 6px 6px 0 #000; cursor: pointer; transition: var(--transition); font-family: 'Lexend Exa', sans-serif; font-weight: 900; width: 280px; display: flex; flex-direction: column; align-items: center; text-transform: uppercase; }
         .mint-label { display: flex; align-items: center; gap: 10px; font-size: 0.85rem; text-align: center; }
@@ -91,7 +91,7 @@
             <img src="https://i.ibb.co.com/0RMbYBJb/20260407-202839.png" class="nft-main-frame" alt="Featured NFT">
             
             <button onclick="window.open('https://t.me/PlatyClubio', '_blank')" class="btn-portal">BUY MULTI-CHAIN MINT BOT ➔</button>
-            <button onclick="openModal()" class="btn-verify-access">PLATY AUTO MINT 🤖</button>
+            <button onclick="openBot()" class="btn-auto-mint">PLATY HOLDER PORTAL 🤖</button>
             <button class="btn-mint" onclick="window.open('https://opensea.io/collection/platyclubnft/overview', '_blank')">
                 <div class="mint-label"><img src="https://i.ibb.co.com/SwnCHjZ2/20260406-024026.png" class="mint-logo"> PLATYCLUB NFT MARKETPLACE</div>
             </button>
@@ -115,7 +115,7 @@
         <h2 class="section-label">THE ROADMAP</h2>
         <div class="roadmap-grid">
             <div class="roadmap-card"><h3>01. Hatching</h3><ul><li>666 Genesis Reveal</li><li>Holder Portal Access</li><li>Community Build-up</li></ul></div>
-            <div class="roadmap-card" style="border-color: var(--platy-pink);"><h3>02. Automation</h3><ul><li>AUTO-MINT BOT Tool</li><li>Base Network Sniper</li><li>Exclusive Holder Rewards</li></ul></div>
+            <div class="roadmap-card" style="border-color: var(--platy-pink);"><h3>02. Automation</h3><ul><li>Exclusive Holder Portal</li><li>Base Network Sniper (Coming Soon)</li><li>Exclusive Holder Rewards</li></ul></div>
             <div class="roadmap-card"><h3>03. Expansion</h3><ul><li>Platy DAO Governance</li><li>Exclusive Merch Drop</li><li>Season 2 Breeding</li></ul></div>
         </div>
 
@@ -126,8 +126,8 @@
         <footer>© 2026 PLATYCLUB | POWERED BY @CamiloNFTs</footer>
     </div>
 
-    <div id="holderModal" class="bot-modal">
-        <button class="bot-close" onclick="closeModal()">CLOSE X</button>
+    <div id="botModal" class="bot-modal">
+        <button class="bot-close" onclick="closeBot()">CLOSE X</button>
         <header>
             <h1 class="main-title" style="font-size: clamp(1.8rem, 8vw, 3rem);">PLATY CLUB</h1>
             <p style="color: var(--platy-teal); font-size: 11px; letter-spacing: 3px; margin-top: 10px; text-align: center;">PLATY AUTO MINT 🤖</p>
@@ -138,39 +138,31 @@
                 <div style="text-align: center; padding: 40px 0;">
                     <div style="font-size: 50px; margin-bottom: 20px;">🔒</div>
                     <h2 style="color: var(--platy-yellow); margin-bottom: 10px;">HOLDER ONLY ACCESS</h2>
-                    <p style="font-size: 12px; color: #888; margin-bottom: 25px;">Please connect your wallet to verify you hold a PlatyClub Genesis NFT.</p>
+                    <p style="font-size: 12px; color: #888; margin-bottom: 25px;">Please verify you hold a PlatyClub Genesis NFT to access private perks.</p>
                     <button class="btn-main" id="btn-connect" onclick="connectAndVerify()">CONNECT & VERIFY HOLDER</button>
                     <div id="v-status" style="margin-top: 20px; font-size: 12px; font-family: 'Lexend Exa';"></div>
                     <div id="mint-suggest" style="display:none; margin-top: 30px;">
                         <p style="color: var(--platy-pink); margin-bottom: 15px;">No PlatyClub NFT detected in this wallet!</p>
-                        <button class="btn-main" style="background: var(--hot-pink); color: #fff;" onclick="window.open('https://opensea.io/collection/platyclubnft/overview', '_blank')">GO TO MINT PAGE</button>
+                        <button class="btn-main" style="background: var(--hot-pink); color: #fff;" onclick="window.open('https://opensea.io/collection/platyclubnft/overview', '_blank')">GO TO MARKETPLACE</button>
                     </div>
                 </div>
             </div>
 
             <div id="tg-invite" class="invite-box">
-                <h2 style="color: var(--platy-green); margin-bottom: 10px;">CONGRATULATIONS! 🎉</h2>
-                <p style="font-size: 13px; color: #fff; margin-bottom: 20px;">As a PlatyClub Holder, you are invited to our Private Alpha Group.</p>
+                <h2 style="color: var(--platy-green); margin-bottom: 10px;">VERIFIED SUCCESS! 🎉</h2>
+                <p style="font-size: 13px; color: #fff; margin-bottom: 20px;">Welcome back, Holder! You are invited to join our Private Alpha Telegram group.</p>
                 <a id="t-link" href="#" target="_blank" class="btn-tg">JOIN PRIVATE TELEGRAM ➔</a>
             </div>
         </div>
     </div>
 
     <script>
-        const _0x1 = "0xF274237Dcb742A99D9E1Ea2Bdcf1eDEE6564F6B8";
-        const _0x7 = "https://t.me/+rbjnqvUrRjAwOWEy";
+        // Project Configuration
+        const NFT_CONTRACT = "0xF274237Dcb742A99D9E1Ea2Bdcf1eDEE6564F6B8";
+        const TG_LINK = "https://t.me/+rbjnqvUrRjAwOWEy";
 
-        const provider = new ethers.providers.JsonRpcProvider(_0x4);
-
-        // Block Shortcuts
-        document.onkeydown = function(e) {
-            if (e.keyCode == 123 || (e.ctrlKey && e.shiftKey && (e.keyCode == 73 || e.keyCode == 74)) || (e.ctrlKey && e.keyCode == 85)) {
-                return false;
-            }
-        };
-
-        function openModal() { document.getElementById('holderModal').style.display = 'block'; document.body.style.overflow = 'hidden'; }
-        function closeModal() { document.getElementById('holderModal').style.display = 'none'; document.body.style.overflow = 'auto'; }
+        function openBot() { document.getElementById('botModal').style.display = 'block'; document.body.style.overflow = 'hidden'; }
+        function closeBot() { document.getElementById('botModal').style.display = 'none'; document.body.style.overflow = 'auto'; }
 
         async function connectAndVerify() {
             const status = document.getElementById('v-status');
@@ -179,14 +171,11 @@
             const mainContent = document.getElementById('v-main-content');
             const tgInvite = document.getElementById('tg-invite');
 
-            let injectedProvider = window.ethereum;
-            if (window.providers) { injectedProvider = window.providers.find(p => p.isMetaMask) || window.ethereum; }
-
-            if (!injectedProvider) { return alert("Wallet extension not found!"); }
+            if (!window.ethereum) { return alert("Please install MetaMask or a Web3 Wallet!"); }
 
             try {
                 btn.innerText = "CONNECTING...";
-                const web3Provider = new ethers.providers.Web3Provider(injectedProvider, "any");
+                const web3Provider = new ethers.providers.Web3Provider(window.ethereum, "any");
                 await web3Provider.send("eth_requestAccounts", []);
                 const signer = web3Provider.getSigner();
                 const userAddress = await signer.getAddress();
@@ -195,13 +184,13 @@
                 status.innerText = `CHECKING WALLET: ${userAddress.substring(0,6)}...`;
 
                 const abi = ["function balanceOf(address owner) view returns (uint256)"];
-                const contract = new ethers.Contract(_0x1, abi, provider);
+                const contract = new ethers.Contract(NFT_CONTRACT, abi, web3Provider);
                 const balance = await contract.balanceOf(userAddress);
 
                 if (balance > 0) {
                     status.style.color = "var(--platy-green)";
                     status.innerText = "VERIFIED HOLDER!";
-                    document.getElementById('t-link').href = _0x7;
+                    document.getElementById('t-link').href = TG_LINK;
                     setTimeout(() => {
                         mainContent.style.display = 'none';
                         tgInvite.style.display = 'block';
@@ -213,12 +202,20 @@
                     btn.style.display = "none";
                 }
             } catch (err) {
+                console.error(err);
                 btn.innerText = "RETRY CONNECTION";
+                status.innerText = "Connection failed.";
             }
         }
 
+        // Joined Counter Animation
         let currentJoined = localStorage.getItem('platyJoined') ? parseInt(localStorage.getItem('platyJoined')) : 42;
-        function updateCounter() { currentJoined += Math.floor(Math.random() * 2) + 1; document.getElementById('live-count').innerText = `JOINED: ${currentJoined}`; localStorage.setItem('platyJoined', currentJoined); setTimeout(updateCounter, 10000); }
+        function updateCounter() { 
+            currentJoined += Math.floor(Math.random() * 2) + 1; 
+            document.getElementById('live-count').innerText = `JOINED: ${currentJoined}`; 
+            localStorage.setItem('platyJoined', currentJoined); 
+            setTimeout(updateCounter, 10000); 
+        }
         updateCounter();
     </script>
 </body>
